@@ -5,5 +5,9 @@
 	obj.onmousedown=function(ev){
 		disX=ev.pageX-obj.offsetLeft;
 		disY=ev.pageY-obj.offsetLeft
+		document.onmousemove=function(){
+			obj.style.left=ev.pageX-disX+'px';
+			obj.style.top=ev.pageY-disY+'px';
+		}
 	}
 }
