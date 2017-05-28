@@ -4,10 +4,16 @@
 	var disY=0;
 	obj.onmousedown=function(ev){
 		disX=ev.pageX-obj.offsetLeft;
-		disY=ev.pageY-obj.offsetLeft;
-		document.onmousemove=function(){
+		disY=ev.pageY-obj.offsetTop;
+		document.onmousemove=function(ev){
 			obj.style.left=ev.pageX-disX+'px';
 			obj.style.top=ev.pageY-disY+'px';	
+		};
+		document.onmouseup=function(){
+			document.onmousedown=null;
+			document.onmousemove=null;
 		}
+		
 	}
+	return false;
 }
